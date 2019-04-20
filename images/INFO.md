@@ -6,5 +6,6 @@ https://raw.githubusercontent.com/bleroy/core-imaging-playground/master/images/D
 
 `DSCN0533_strip.jpg`: 
 ```bash
-vips copy DSCN0533.jpg DSCN0533_strip.jpg[strip=true]
+identify -format '%Q' DSCN0533.jpg
+vips copy DSCN0533.jpg DSCN0533_strip.jpg[Q=97,strip=true]
 ```

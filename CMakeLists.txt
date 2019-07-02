@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.11)
 
 project(vips-microbench
         VERSION 1.0.0
-        DESCRIPTION "libvips C++ microbenchmarks"
+        DESCRIPTION "libvips microbenchmarks"
         LANGUAGES
             C
             CXX

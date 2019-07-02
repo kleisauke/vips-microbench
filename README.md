@@ -1,6 +1,6 @@
-# libvips C++ micro-benchmarks
+# libvips micro-benchmarks
 
-A collection of micro-benchmarks used to measure the performance of libvips's C++ binding.
+A collection of micro-benchmarks used to measure the performance of libvips.
 
 ## Build
 ```bash
@@ -18,6 +18,7 @@ make
 sudo cpupower frequency-set --governor performance
 
 ./bin/vips-microbench-thumbnail --benchmark_repetitions=10
+./bin/vips-microbench-reduce --benchmark_repetitions=10
 
 # After benchmarking you can go back to the more conservative option
 sudo cpupower frequency-set --governor powersave

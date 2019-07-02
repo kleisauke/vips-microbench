@@ -4,8 +4,21 @@
 https://raw.githubusercontent.com/bleroy/core-imaging-playground/master/images/DSCN0533.JPG
 ```
 
-`DSCN0533_strip.jpg`: 
+`sample2.v`:
+```
+https://github.com/libvips/vips-bench/blob/master/sample2.v
+```
+
+
+`DSCN0533_strip.jpg`:
 ```bash
 identify -format '%Q' DSCN0533.jpg
-vips copy DSCN0533.jpg DSCN0533_strip.jpg[Q=97,strip=true]
+vips copy DSCN0533.jpg DSCN0533_strip.jpg[Q=97,strip]
+```
+
+`x.jpg`:
+```bash
+vips colourspace sample2.v t1.v srgb
+vips replicate t1.v t2.v 20 15
+vips extract_area t2.v x.jpg[strip] 0 0 5000 5000
 ```

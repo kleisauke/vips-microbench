@@ -1,3 +1,15 @@
+add_executable(${PROJECT_NAME}-exif exif-bench.cpp)
+target_include_directories(${PROJECT_NAME}-exif
+        PRIVATE
+            ${VIPS_INCLUDE_DIRS}
+        )
+target_link_libraries(${PROJECT_NAME}-exif
+        PRIVATE
+            benchmark
+            ${VIPS_LDFLAGS}
+            ${CMAKE_THREAD_LIBS_INIT}
+        )
+
 add_executable(${PROJECT_NAME}-thumbnail thumbnail-bench.cpp)
 target_include_directories(${PROJECT_NAME}-thumbnail
         PRIVATE

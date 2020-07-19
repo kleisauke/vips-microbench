@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.11)
 
 project(vips-microbench
         VERSION 1.0.0
-        DESCRIPTION "libvips microbenchmarks"
+        DESCRIPTION "libvips micro-benchmarks"
         LANGUAGES
             C
             CXX
@@ -34,7 +34,7 @@ include(FetchContent)
 
 # Find libvips (required)
 find_package(PkgConfig)
-pkg_check_modules(VIPS vips-cpp>=8.8 REQUIRED)
+pkg_check_modules(VIPS vips-cpp>=8.10 REQUIRED)
 
 # Add google/benchmark dependency
 add_subdirectory(third_party/benchmark)

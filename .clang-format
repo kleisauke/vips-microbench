@@ -9,7 +9,7 @@ SpacesBeforeTrailingComments: 2
 # Indent case labels
 IndentCaseLabels: true
 # Always break after template declaration
-AlwaysBreakTemplateDeclarations: true
+AlwaysBreakTemplateDeclarations: Yes
 # Only merge empty functions
 AllowShortFunctionsOnASingleLine: Empty
 # Override the access modifier offset (cpplint)

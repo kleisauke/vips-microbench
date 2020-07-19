@@ -17,6 +17,7 @@ make
 # Disable the CPU frequency scaling while running the benchmark
 sudo cpupower frequency-set --governor performance
 
+./bin/vips-microbench-exif --benchmark_repetitions=10
 ./bin/vips-microbench-thumbnail --benchmark_repetitions=10
 ./bin/vips-microbench-reduce --benchmark_repetitions=10
 

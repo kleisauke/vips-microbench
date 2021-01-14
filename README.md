@@ -14,12 +14,16 @@ make
 
 ## Run
 ```bash
-# Disable the CPU frequency scaling while running the benchmark
+# Disable CPU frequency scaling while running the benchmark
 sudo cpupower frequency-set --governor performance
+
+# Or use tuned-adm (RHEL / Fedora specific)
+sudo tuned-adm profile latency-performance
 
 ./bin/vips-microbench-exif --benchmark_repetitions=10
 ./bin/vips-microbench-thumbnail --benchmark_repetitions=10
 ./bin/vips-microbench-reduce --benchmark_repetitions=10
+./bin/vips-microbench-jpeg --benchmark_repetitions=10
 
 # After benchmarking you can go back to the more conservative option
 sudo cpupower frequency-set --governor powersave

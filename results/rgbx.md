@@ -1,4 +1,8 @@
-# RGB
+# Experiment with RGBX
+
+See [libvips/libvips#1332](https://github.com/libvips/libvips/issues/1332).
+
+## RGB
 
 ```bash
 $ ./bin/vips-microbench-reduce --benchmark_repetitions=10
@@ -29,7 +33,7 @@ BM_jpeg_reduce_lanczos3_150x150/strip/real_time_median        427 ms         11.
 BM_jpeg_reduce_lanczos3_150x150/strip/real_time_stddev       20.0 ms         2.21 ms           10
 ```
 
-# RGB with vectorized reduceh
+## RGB with vectorized reduceh
 
 ```bash
 2019-07-04 13:50:16
@@ -59,7 +63,7 @@ BM_jpeg_reduce_lanczos3_150x150/strip/real_time_median        414 ms         10.
 BM_jpeg_reduce_lanczos3_150x150/strip/real_time_stddev       14.1 ms         1.44 ms           10
 ```
 
-# RGBX
+## RGBX
 
 ```bash
 2019-07-02 21:07:31
@@ -89,7 +93,7 @@ BM_jpeg_reduce_lanczos3_150x150/strip/real_time_median        481 ms         8.3
 BM_jpeg_reduce_lanczos3_150x150/strip/real_time_stddev       9.01 ms        0.929 ms           10
 ```
 
-# RGBX with vectorized reduceh
+## RGBX with vectorized reduceh
 
 ```bash
 $ ./bin/vips-microbench-reduce --benchmark_repetitions=10

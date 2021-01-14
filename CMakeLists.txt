@@ -34,7 +34,7 @@ include(FetchContent)
 
 # Find libvips (required)
 find_package(PkgConfig)
-pkg_check_modules(VIPS vips-cpp>=8.10 REQUIRED)
+pkg_check_modules(VIPS vips-cpp>=8.11 REQUIRED)
 
 # Add google/benchmark dependency
 add_subdirectory(third_party/benchmark)

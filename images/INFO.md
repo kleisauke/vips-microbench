@@ -26,8 +26,3 @@ vips colourspace sample2.v t1.v srgb
 vips replicate t1.v t2.v 20 15
 vips extract_area t2.v x.jpg[strip] 0 0 5000 5000
 ```
-
-`x.v`:
-```bash
-vips cast x.jpg x.v uint
-```

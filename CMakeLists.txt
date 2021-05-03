@@ -1,11 +1,10 @@
-# Note: The FetchContent module was added in CMake 3.11
-cmake_minimum_required(VERSION 3.11)
+# Note: FetchContent_MakeAvailable was added in CMake 3.14
+cmake_minimum_required(VERSION 3.14)
 
 project(vips-microbench
         VERSION 1.0.0
         DESCRIPTION "libvips micro-benchmarks"
         LANGUAGES
-            C
             CXX
         )
 

@@ -5,6 +5,7 @@ project(vips-microbench
         VERSION 1.0.0
         DESCRIPTION "libvips micro-benchmarks"
         LANGUAGES
+            C
             CXX
         )
 
@@ -34,6 +35,9 @@ include(FetchContent)
 # Find libvips (required)
 find_package(PkgConfig)
 pkg_check_modules(VIPS vips-cpp>=8.11 REQUIRED)
+
+add_subdirectory(third_party/cgif)
+add_subdirectory(third_party/gifenc)
 
 # Add google/benchmark dependency
 add_subdirectory(third_party/benchmark)

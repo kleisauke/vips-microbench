@@ -41,3 +41,11 @@ target_link_libraries(${PROJECT_NAME}-jpeg
             benchmark
             ${VIPS_LDFLAGS}
         )
+
+add_executable(${PROJECT_NAME}-gifsave gifsave-bench.cpp)
+target_link_libraries(${PROJECT_NAME}-gifsave
+        PRIVATE
+            benchmark
+            cgif
+            gifenc
+        )

@@ -24,6 +24,7 @@ sudo tuned-adm profile latency-performance
 ./bin/vips-microbench-thumbnail --benchmark_repetitions=10
 ./bin/vips-microbench-reduce --benchmark_repetitions=10
 ./bin/vips-microbench-jpeg --benchmark_repetitions=10
+./bin/vips-microbench-gifsave --benchmark_repetitions=10
 
 # After benchmarking you can go back to the more conservative option
 sudo cpupower frequency-set --governor powersave

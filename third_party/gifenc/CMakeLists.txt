@@ -1,6 +1,6 @@
 FetchContent_Declare(gifenc
         GIT_REPOSITORY https://github.com/lecram/gifenc.git
-        GIT_TAG 7d53ea9820af3388a1df1a5b16ed4bcc6f6ef7c7
+        GIT_TAG 87acd487dfa2f2a638eec751a1d6c2fff60822da
         CONFIGURE_COMMAND ""
         BUILD_COMMAND ""
         )

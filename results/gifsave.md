@@ -1,49 +1,50 @@
 # Comparison of different 'gifsave' libraries
 
 Tested commits:
-- https://github.com/dloebl/cgif/commit/e3ba2e62613f10c7cac0dc053b86069a668b5beb
-- https://github.com/lecram/gifenc/commit/7d53ea9820af3388a1df1a5b16ed4bcc6f6ef7c7
+- https://github.com/dloebl/cgif/commit/8803d06b14dc5f85a5457898b41cd989722d52cc
+- https://github.com/lecram/gifenc/commit/87acd487dfa2f2a638eec751a1d6c2fff60822da
 
 ## Results
 
-TL;DR: cgif is ~41% faster than gifenc on this benchmark.
+TL;DR: cgif is ~43% faster than gifenc on this benchmark.
 
 ````bash
-2021-07-27T12:55:02+02:00
+2021-08-19T19:17:23+02:00
 Running ./bin/vips-microbench-gifsave
-Run on (6 X 4100.96 MHz CPU s)
+Run on (6 X 4100.22 MHz CPU s)
 CPU Caches:
-L1 Data 32 KiB (x6)
-L1 Instruction 32 KiB (x6)
-L2 Unified 256 KiB (x6)
-L3 Unified 9216 KiB (x1)
-Load Average: 0.48, 0.84, 0.80
+  L1 Data 32 KiB (x6)
+  L1 Instruction 32 KiB (x6)
+  L2 Unified 256 KiB (x6)
+  L3 Unified 9216 KiB (x1)
+Load Average: 0.53, 0.55, 0.72
 ---------------------------------------------------------------------
 Benchmark                           Time             CPU   Iterations
 ---------------------------------------------------------------------
-BM_gifenc/real_time             0.703 ms        0.671 ms          993
-BM_gifenc/real_time             0.707 ms        0.671 ms          993
-BM_gifenc/real_time             0.710 ms        0.674 ms          993
-BM_gifenc/real_time             0.703 ms        0.670 ms          993
-BM_gifenc/real_time             0.702 ms        0.670 ms          993
-BM_gifenc/real_time             0.706 ms        0.674 ms          993
-BM_gifenc/real_time             0.710 ms        0.678 ms          993
-BM_gifenc/real_time             0.741 ms        0.680 ms          993
-BM_gifenc/real_time             0.705 ms        0.672 ms          993
-BM_gifenc/real_time             0.702 ms        0.671 ms          993
-BM_gifenc/real_time_mean        0.709 ms        0.673 ms           10
-BM_gifenc/real_time_median      0.705 ms        0.672 ms           10
-BM_gifenc/real_time_stddev      0.012 ms        0.003 ms           10
-BM_cgif/real_time               0.414 ms        0.377 ms         1689
-BM_cgif/real_time               0.414 ms        0.377 ms         1689
-BM_cgif/real_time               0.414 ms        0.377 ms         1689
-BM_cgif/real_time               0.414 ms        0.377 ms         1689
-BM_cgif/real_time               0.414 ms        0.377 ms         1689
-BM_cgif/real_time               0.414 ms        0.377 ms         1689
-BM_cgif/real_time               0.414 ms        0.377 ms         1689
-BM_cgif/real_time               0.414 ms        0.377 ms         1689
-BM_cgif/real_time               0.413 ms        0.377 ms         1689
-BM_cgif/real_time               0.414 ms        0.377 ms         1689
-BM_cgif/real_time_mean          0.414 ms        0.377 ms           10
-BM_cgif/real_time_median        0.414 ms        0.377 ms           10
+BM_gifenc/real_time             0.732 ms        0.699 ms          956
+BM_gifenc/real_time             0.733 ms        0.700 ms          956
+BM_gifenc/real_time             0.735 ms        0.703 ms          956
+BM_gifenc/real_time             0.737 ms        0.704 ms          956
+BM_gifenc/real_time             0.735 ms        0.703 ms          956
+BM_gifenc/real_time             0.735 ms        0.703 ms          956
+BM_gifenc/real_time             0.736 ms        0.703 ms          956
+BM_gifenc/real_time             0.748 ms        0.702 ms          956
+BM_gifenc/real_time             0.736 ms        0.702 ms          956
+BM_gifenc/real_time             0.735 ms        0.701 ms          956
+BM_gifenc/real_time_mean        0.736 ms        0.702 ms           10
+BM_gifenc/real_time_median      0.735 ms        0.702 ms           10
+BM_gifenc/real_time_stddev      0.004 ms        0.001 ms           10
+BM_cgif/real_time               0.419 ms        0.381 ms         1671
+BM_cgif/real_time               0.419 ms        0.381 ms         1671
+BM_cgif/real_time               0.419 ms        0.381 ms         1671
+BM_cgif/real_time               0.419 ms        0.381 ms         1671
+BM_cgif/real_time               0.419 ms        0.381 ms         1671
+BM_cgif/real_time               0.419 ms        0.381 ms         1671
+BM_cgif/real_time               0.419 ms        0.382 ms         1671
+BM_cgif/real_time               0.419 ms        0.381 ms         1671
+BM_cgif/real_time               0.419 ms        0.381 ms         1671
+BM_cgif/real_time               0.420 ms        0.382 ms         1671
+BM_cgif/real_time_mean          0.419 ms        0.381 ms           10
+BM_cgif/real_time_median        0.419 ms        0.381 ms           10
+BM_cgif/real_time_stddev        0.000 ms        0.000 ms           10
 ```

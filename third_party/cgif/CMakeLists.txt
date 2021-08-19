@@ -1,6 +1,6 @@
 FetchContent_Declare(cgif
         GIT_REPOSITORY https://github.com/dloebl/cgif.git
-        GIT_TAG e3ba2e62613f10c7cac0dc053b86069a668b5beb
+        GIT_TAG 8803d06b14dc5f85a5457898b41cd989722d52cc
         CONFIGURE_COMMAND ""
         BUILD_COMMAND ""
         )

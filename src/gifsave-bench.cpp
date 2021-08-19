@@ -1,12 +1,11 @@
-#include <benchmark/benchmark.h>
-extern "C" {  // TODO(kleisauke): This should be handled in the cgif.h
-#include <cgif.h>
-}
 #include <cstring>
+
+#include <benchmark/benchmark.h>
+#include <cgif.h>
 #include <gifenc.h>
 
 static void BM_gifenc(benchmark::State &state) {
-    int w = 120, h = 90;  // canvas size
+    uint16_t w = 120, h = 90;  // canvas size
     uint8_t palette[] = {
         0x00, 0x00, 0x00,  // 0 -> black
         0xFF, 0x00, 0x00,  // 1 -> red
@@ -15,12 +14,13 @@ static void BM_gifenc(benchmark::State &state) {
     };
     int depth = 2;              // palette depth == log2(# of colors)
     int numFrames = 4 * 6 / 3;  // number of frames
-    int numLoops = 0;           //  infinite loop
+    int numLoops = 0;           // infinite loop
+    int bgindex = -1;           // no transparency
 
     for (auto _ : state) {
         // create a GIF
-        ge_GIF *gif =
-            ge_new_gif("images/gifenc.gif", w, h, palette, depth, numLoops);
+        ge_GIF *gif = ge_new_gif("images/gifenc.gif", w, h, palette, depth,
+                                 bgindex, numLoops);
 
         // draw some frames
         for (int i = 0; i < numFrames; i++) {
@@ -40,7 +40,7 @@ static void BM_cgif(benchmark::State &state) {
     FrameConfig frameConfig;
     uint8_t *imageData;
 
-    int w = 120, h = 90;  // canvas size
+    uint16_t w = 120, h = 90;  // canvas size
     uint8_t palette[] = {
         0x00, 0x00, 0x00,  // 0 -> black
         0xFF, 0x00, 0x00,  // 1 -> red

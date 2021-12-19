@@ -4,20 +4,20 @@ Tested commit: https://github.com/kleisauke/libvips/commit/fdc67705824d7d95aa943
 
 ```bash
 # Prepare test image
-$ vips identity t.v 
+$ vips identity t.v
 $ vips replicate t.v x.png 1 256
 $ rm t.v
 
 # Prepare blur mask
 $ cat <<EOT > blur.mat
-3 3 9 1
+3 3 9
 1 1 1
 1 1 1
 1 1 1
 EOT
 
 # Pillow-SIMD test
-$ time python3 -c "from PIL import Image, ImageFilter; Image.open('x.png').filter(ImageFilter.Kernel((3, 3), (1, 1, 1, 1, 1, 1, 1, 1, 1), 9, 1)).save('pillow-simd-blur.png')"
+$ time python3 -c "from PIL import Image, ImageFilter; Image.open('x.png').filter(ImageFilter.Kernel((3, 3), (1, 1, 1, 1, 1, 1, 1, 1, 1), 9)).save('pillow-simd-blur.png')"
 
 real	0m0.108s
 user	0m0.098s
@@ -32,7 +32,7 @@ user	0m0.022s
 sys	0m0.010s
 
 # Pillow-SIMD benchmark 5000x5000
-$  time python3 -c "from PIL import Image, ImageFilter; Image.open('images/x.jpg').filter(ImageFilter.Kernel((3, 3), (1, 1, 1, 1, 1, 1, 1, 1, 1), 9, 1)).save('pillow-simd-blur.jpg')"
+$ time python3 -c "from PIL import Image, ImageFilter; Image.open('images/x.jpg').filter(ImageFilter.Kernel((3, 3), (1, 1, 1, 1, 1, 1, 1, 1, 1), 9)).save('pillow-simd-blur.jpg')"
 
 real	0m0.357s
 user	0m0.291s

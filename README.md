@@ -18,7 +18,7 @@ make
 sudo cpupower frequency-set --governor performance
 
 # Or use tuned-adm (RHEL / Fedora specific)
-sudo tuned-adm profile latency-performance
+sudo tuned-adm profile throughput-performance
 
 ./bin/vips-microbench-exif --benchmark_repetitions=10
 ./bin/vips-microbench-thumbnail --benchmark_repetitions=10

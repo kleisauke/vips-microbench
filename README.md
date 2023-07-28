@@ -6,10 +6,9 @@ A collection of micro-benchmarks used to measure the performance of libvips.
 ```bash
 git clone https://github.com/kleisauke/vips-microbench.git
 cd vips-microbench
-mkdir build && cd build
-cmake .. \
-  -DCMAKE_BUILD_TYPE=Release
-make
+rm -rf build/
+cmake -S . -B build -GNinja -DCMAKE_BUILD_TYPE=Release
+cmake --build build -- -j$(nproc)
 ```
 
 ## Run

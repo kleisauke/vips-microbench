@@ -3,10 +3,10 @@
 
 using vips::VImage;
 
-static void BM_jpeg_reduce_lanczos3_150x150(benchmark::State &state,
+static void BM_jpeg_reduce_lanczos3_625x625(benchmark::State &state,
                                             const char *in_file,
                                             const char *out_file) {
-    const double factor = 5000.0 / 150.0;
+    const double factor = 5000.0 / 625.0;
 
     for (auto _ : state) {
         auto image = VImage::new_from_file(
@@ -21,10 +21,10 @@ static void BM_jpeg_reduce_lanczos3_150x150(benchmark::State &state,
 }
 
 // clang-format off
-BENCHMARK_CAPTURE(BM_jpeg_reduce_lanczos3_150x150,
+BENCHMARK_CAPTURE(BM_jpeg_reduce_lanczos3_625x625,
                   strip,
                   "images/x.jpg",
-                  "bin/x_150x150.jpg")
+                  "bin/x_625x625.jpg")
     ->Unit(benchmark::kMillisecond)
     ->UseRealTime();
 // clang-format on

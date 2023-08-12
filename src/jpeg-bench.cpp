@@ -3,6 +3,7 @@
 
 using vips::VImage;
 
+// From: https://github.com/libvips/vips-bench/blob/master/vips.cc
 static void BM_jpeg_crop_shrink_sharpen(benchmark::State &state,
                                         const char *in_file,
                                         const char *out_file) {
@@ -30,7 +31,7 @@ static void BM_jpeg_crop_shrink_sharpen(benchmark::State &state,
 
 // clang-format off
 BENCHMARK_CAPTURE(BM_jpeg_crop_shrink_sharpen,
-                  5000x5000,
+                  10000x10000,
                   "images/x.jpg",
                   "bin/x2.jpg")
         ->Unit(benchmark::kMillisecond)

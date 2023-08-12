@@ -3,10 +3,10 @@
 
 using vips::VImage;
 
-static void BM_jpeg_reduce_lanczos3_150x150(benchmark::State &state,
-                                            const char *in_file,
-                                            const char *out_file) {
-    const double factor = 5000.0 / 150.0;
+static void BM_jpeg_reduce_lanczos3_factor_8(benchmark::State &state,
+                                             const char *in_file,
+                                             const char *out_file) {
+    const double factor = 8;  // 10000.0 / 1250.0
 
     for (auto _ : state) {
         auto image = VImage::new_from_file(
@@ -15,16 +15,15 @@ static void BM_jpeg_reduce_lanczos3_150x150(benchmark::State &state,
         image =
             image.reduce(factor, factor,
                          VImage::option()->set("kernel", VIPS_KERNEL_LANCZOS3));
-        image.jpegsave(const_cast<char *>(out_file),
-                       VImage::option()->set("strip", true));
+        image.jpegsave(const_cast<char *>(out_file));
     }
 }
 
 // clang-format off
-BENCHMARK_CAPTURE(BM_jpeg_reduce_lanczos3_150x150,
-                  strip,
+BENCHMARK_CAPTURE(BM_jpeg_reduce_lanczos3_factor_8,
+                  10000x10000,
                   "images/x.jpg",
-                  "bin/x_150x150.jpg")
+                  "bin/x_1250x1250.jpg")
     ->Unit(benchmark::kMillisecond)
     ->UseRealTime();
 // clang-format on

@@ -7,11 +7,10 @@ static void BM_jpeg_thumbnail_150x150(benchmark::State &state,
                                       const char *in_file,
                                       const char *out_file) {
     for (auto _ : state) {
-        auto thumbnail =
-            VImage::thumbnail(const_cast<char *>(in_file), 150,
-                              VImage::option()->set("height", 150));
-        thumbnail.jpegsave(const_cast<char *>(out_file),
-                           VImage::option()->set("strip", true));
+        auto thumbnail = VImage::thumbnail(
+            in_file, 150, VImage::option()->set("height", 150));
+        thumbnail.jpegsave(
+            out_file, VImage::option()->set("keep", VIPS_FOREIGN_KEEP_NONE));
     }
 }
 

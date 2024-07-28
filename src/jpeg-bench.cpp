@@ -8,9 +8,7 @@ static void BM_jpeg_crop_shrink_sharpen(benchmark::State &state,
                                         const char *in_file,
                                         const char *out_file) {
     for (auto _ : state) {
-        auto in = VImage::new_from_file(
-            const_cast<char *>(in_file),
-            VImage::option()->set("access", VIPS_ACCESS_SEQUENTIAL));
+        auto in = VImage::new_from_file(in_file);
 
         // clang-format off
         auto mask = VImage::new_matrixv(3, 3,
@@ -25,7 +23,7 @@ static void BM_jpeg_crop_shrink_sharpen(benchmark::State &state,
                     VImage::option()->set("kernel", VIPS_KERNEL_LINEAR))
             .conv(mask,
                   VImage::option()->set("precision", VIPS_PRECISION_INTEGER))
-            .jpegsave(const_cast<char *>(out_file));
+            .jpegsave(out_file);
     }
 }
 

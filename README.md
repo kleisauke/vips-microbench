@@ -3,6 +3,7 @@
 A collection of micro-benchmarks used to measure the performance of libvips.
 
 ## Build
+
 ```bash
 git clone https://github.com/kleisauke/vips-microbench.git
 cd vips-microbench
@@ -12,6 +13,7 @@ cmake --build build -- -j$(nproc)
 ```
 
 ## Run
+
 ```bash
 # Disable CPU frequency scaling while running the benchmark
 sudo cpupower frequency-set --governor performance

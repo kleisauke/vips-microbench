@@ -10,12 +10,11 @@ static void BM_jpeg_reduce_lanczos3_factor_8(benchmark::State &state,
 
     for (auto _ : state) {
         auto image = VImage::new_from_file(
-            const_cast<char *>(in_file),
-            VImage::option()->set("access", VIPS_ACCESS_SEQUENTIAL));
+            in_file, VImage::option()->set("access", VIPS_ACCESS_SEQUENTIAL));
         image =
             image.reduce(factor, factor,
                          VImage::option()->set("kernel", VIPS_KERNEL_LANCZOS3));
-        image.jpegsave(const_cast<char *>(out_file));
+        image.jpegsave(out_file);
     }
 }
 

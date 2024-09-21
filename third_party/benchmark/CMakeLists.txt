@@ -1,6 +1,6 @@
 FetchContent_Declare(benchmark
         GIT_REPOSITORY https://github.com/google/benchmark.git
-        GIT_TAG v1.8.5
+        GIT_TAG v1.9.0
         )
 
 # Do not build the tests

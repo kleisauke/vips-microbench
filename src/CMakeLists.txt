@@ -31,6 +31,17 @@ target_link_libraries(${PROJECT_NAME}-reduce
             ${VIPS_LDFLAGS}
         )
 
+add_executable(${PROJECT_NAME}-shrink shrink-bench.cpp)
+target_include_directories(${PROJECT_NAME}-shrink
+        PRIVATE
+            ${VIPS_INCLUDE_DIRS}
+)
+target_link_libraries(${PROJECT_NAME}-shrink
+        PRIVATE
+            benchmark
+            ${VIPS_LDFLAGS}
+)
+
 add_executable(${PROJECT_NAME}-jpeg jpeg-bench.cpp)
 target_include_directories(${PROJECT_NAME}-jpeg
         PRIVATE

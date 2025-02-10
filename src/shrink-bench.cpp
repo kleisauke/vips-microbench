@@ -3,24 +3,20 @@
 
 using vips::VImage;
 
-static void BM_jpeg_reduce_lanczos3_factor_8(benchmark::State &state,
-                                             const char *in_file,
-                                             const char *out_file) {
+static void BM_jpeg_shrink_factor_8(benchmark::State &state,
+                                    const char *in_file, const char *out_file) {
     const double factor = 8;  // 10000.0 / 1250.0
 
     for (auto _ : state) {
         auto image = VImage::new_from_file(
             in_file, VImage::option()->set("access", VIPS_ACCESS_SEQUENTIAL));
-        image = image.reduce(factor, factor,
-                             VImage::option()
-                                 ->set("kernel", VIPS_KERNEL_LANCZOS3)
-                                 ->set("gap", 2.0));
+        image = image.shrink(factor, factor);
         image.jpegsave(out_file);
     }
 }
 
 // clang-format off
-BENCHMARK_CAPTURE(BM_jpeg_reduce_lanczos3_factor_8,
+BENCHMARK_CAPTURE(BM_jpeg_shrink_factor_8,
                   10000x10000,
                   "images/x.jpg",
                   "bin/x_1250x1250.jpg")

@@ -25,9 +25,10 @@ BENCHMARK_CAPTURE(BM_jpeg_shrink_factor_8,
 // clang-format on
 
 int main(int argc, char *argv[]) {
-    if (VIPS_INIT(argv[0]) != 0) {
+    benchmark::MaybeReenterWithoutASLR(argc, argv);
+
+    if (VIPS_INIT(argv[0]))
         vips_error_exit(nullptr);
-    }
 
     // Disable libvips cache to ensure tests are as fair as they can be
     vips_cache_set_max(0);

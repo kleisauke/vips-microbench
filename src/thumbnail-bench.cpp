@@ -18,20 +18,23 @@ static void BM_jpeg_thumbnail_150x150(benchmark::State &state,
 BENCHMARK_CAPTURE(BM_jpeg_thumbnail_150x150,
                   original,
                   "images/DSCN0533.jpg",
-                  "bin/DSCN0533_150x150.jpg")
-        ->Unit(benchmark::kMillisecond)
-        ->UseRealTime();
+                  "DSCN0533_150x150.jpg")
+    ->Repetitions(10)
+    ->Unit(benchmark::kMillisecond)
+    ->UseRealTime();
 
 BENCHMARK_CAPTURE(BM_jpeg_thumbnail_150x150,
                   strip,
                   "images/DSCN0533_strip.jpg",
-                  "bin/DSCN0533_strip_150x150.jpg")
-        ->Unit(benchmark::kMillisecond)
-        ->UseRealTime();
+                  "DSCN0533_strip_150x150.jpg")
+    ->Repetitions(10)
+    ->Unit(benchmark::kMillisecond)
+    ->UseRealTime();
 // clang-format on
 
 int main(int argc, char *argv[]) {
-    benchmark::MaybeReenterWithoutASLR(argc, argv);
+    // FIXME: Requires google-benchmark v1.9.3
+    //benchmark::MaybeReenterWithoutASLR(argc, argv);
 
     if (VIPS_INIT(argv[0]))
         vips_error_exit(nullptr);

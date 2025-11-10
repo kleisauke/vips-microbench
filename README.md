@@ -8,8 +8,8 @@ A collection of micro-benchmarks used to measure the performance of libvips.
 git clone https://github.com/kleisauke/vips-microbench.git
 cd vips-microbench
 rm -rf build/
-cmake -S . -B build -GNinja -DCMAKE_BUILD_TYPE=Release
-cmake --build build -- -j$(nproc)
+meson setup build
+meson compile -C build
 ```
 
 ## Run
@@ -21,10 +21,15 @@ sudo cpupower frequency-set --governor performance
 # Or use tuned-adm (RHEL / Fedora specific)
 sudo tuned-adm profile throughput-performance
 
-./bin/vips-microbench-exif --benchmark_repetitions=10
-./bin/vips-microbench-thumbnail --benchmark_repetitions=10
-./bin/vips-microbench-reduce --benchmark_repetitions=10
-./bin/vips-microbench-jpeg --benchmark_repetitions=10
+# All benchmarks 
+meson test -C build --benchmark -v
+
+# Individual benchmarks
+meson test -C build --benchmark exif-bench -v
+meson test -C build --benchmark jpeg-bench  -v
+meson test -C build --benchmark reduce-bench -v
+meson test -C build --benchmark shrink-bench -v
+meson test -C build --benchmark thumbnail-bench -v
 
 # After benchmarking you can go back to the more conservative option
 sudo cpupower frequency-set --governor powersave

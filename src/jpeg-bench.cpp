@@ -31,13 +31,15 @@ static void BM_jpeg_crop_shrink_sharpen(benchmark::State &state,
 BENCHMARK_CAPTURE(BM_jpeg_crop_shrink_sharpen,
                   10000x10000,
                   "images/x.jpg",
-                  "bin/x2.jpg")
-        ->Unit(benchmark::kMillisecond)
-        ->UseRealTime();
+                  "x2.jpg")
+    ->Repetitions(10)
+    ->Unit(benchmark::kMillisecond)
+    ->UseRealTime();
 // clang-format on
 
 int main(int argc, char *argv[]) {
-    benchmark::MaybeReenterWithoutASLR(argc, argv);
+    // FIXME: Requires google-benchmark v1.9.3
+    //benchmark::MaybeReenterWithoutASLR(argc, argv);
 
     if (VIPS_INIT(argv[0]))
         vips_error_exit(nullptr);

@@ -18,13 +18,15 @@ static void BM_jpeg_exif_strip(benchmark::State &state,
 BENCHMARK_CAPTURE(BM_jpeg_exif_strip,
                   original,
                   "images/multi-segment_exif.jpg",
-                  "bin/multi-segment_exif_strip.jpg")
-        ->Unit(benchmark::kMillisecond)
-        ->UseRealTime();
+                  "multi-segment_exif_strip.jpg")
+    ->Repetitions(10)
+    ->Unit(benchmark::kMillisecond)
+    ->UseRealTime();
 // clang-format on
 
 int main(int argc, char *argv[]) {
-    benchmark::MaybeReenterWithoutASLR(argc, argv);
+    // FIXME: Requires google-benchmark v1.9.3
+    //benchmark::MaybeReenterWithoutASLR(argc, argv);
 
     if (VIPS_INIT(argv[0]))
         vips_error_exit(nullptr);

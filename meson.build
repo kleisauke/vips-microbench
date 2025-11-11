@@ -2,7 +2,7 @@ project(
     'vips-microbench',
     'cpp',
     version: '1.0.0',
-    meson_version: '>=1.2.0',
+    meson_version: '>=0.55',
     default_options: [
         # we use C++11 features
         'cpp_std=c++11',
@@ -27,7 +27,7 @@ benchmark_main_dep = dependency(
     'benchmark_main',
     version: '>=1.8.4',
     fallback: ['google-benchmark', 'google_benchmark_main_dep'],
-    default_options: {'tests': 'disabled'},
+    default_options: 'tests=disabled',
 )
 
 summary('Compiler', cpp.get_id(), section: 'Toolchain')

@@ -2,7 +2,7 @@ project(
     'vips-microbench',
     'cpp',
     version: '1.0.0',
-    meson_version: '>=0.55',
+    meson_version: '>=0.59',
     default_options: [
         # we use C++11 features
         'cpp_std=c++11',

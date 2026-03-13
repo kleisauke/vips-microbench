@@ -1,17 +1,21 @@
-benchmarks = [
-    'exif-bench',
-    'jpeg-bench',
-    'reduce-bench',
-    'shrink-bench',
-    'thumbnail-bench',
-]
+fs = import('fs')
 
-foreach benchmark : benchmarks
-    exe = executable(
-        benchmark,
-        sources: '@0@.cpp'.format(benchmark),
+bench_files = files(
+    'exif-bench.cpp',
+    'jpeg-bench.cpp',
+    'reduce-bench.cpp',
+    'shrink-bench.cpp',
+    'thumbnail-bench.cpp',
+)
+
+foreach bench_src : bench_files
+    exe_name = fs.stem(bench_src)
+
+    bench_exe = executable(
+        exe_name,
+        bench_src,
         dependencies: [benchmark_main_dep, vips_dep],
     )
 
-    benchmark(benchmark, exe)
+    benchmark(exe_name, bench_exe)
 endforeach

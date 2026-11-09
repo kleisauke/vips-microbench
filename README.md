@@ -4,7 +4,7 @@ A collection of micro-benchmarks used to measure the performance of libvips.
 
 ## Build
 
-```bash
+```shell
 git clone https://github.com/kleisauke/vips-microbench.git
 cd vips-microbench
 rm -rf build/
@@ -14,14 +14,14 @@ meson compile -C build
 
 ## Run
 
-```bash
+```shell
 # Disable CPU frequency scaling while running the benchmark
 sudo cpupower frequency-set --governor performance
 
 # Or use tuned-adm (RHEL / Fedora specific)
 sudo tuned-adm profile throughput-performance
 
-# All benchmarks 
+# All benchmarks
 meson test -C build --benchmark -v
 
 # Individual benchmarks
